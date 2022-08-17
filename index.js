@@ -1,26 +1,32 @@
 //Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
 //1
-
+console.clear();
 function filterRange(arr, a, b) {
-    //write your code here
-  }
-  
-  let arr = [5, 3, 8, 1];
-  
-  let filtered = filterRange(arr, 1, 4);
-  
-  console.log( filtered ); // 3,1 (matching values)
-  
-  console.log( arr ); // 5,3,8,1 (not modified)
+  let result = [];
+  arr.filter((el, i, list) => {
+    if (list[i] >= a && list[i] <= b) return result.push(el);
+  });
+  return result;
+}
 
+let arr = [5, 3, 8, 1];
+
+let filtered = filterRange(arr, 1, 4);
+
+console.log(filtered); // 3,1 (matching values)
+console.log(arr); // 5,3,8,1 (not modified)
+console.log("---------------------------------");
 //Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
 //2
-  function filterRangeInPlace(arr, a, b) {
-    //write your code here
-  }
-  
-  let array = [5, 3, 8, 1];
-  
-  filterRangeInPlace(array, 1, 4); // removed the numbers except from 1 to 4
-  
-  console.log( array ); // [3, 1]
+function filterRangeInPlace(arr, a, b) {
+  array = arr.filter((el) => {
+    if (a <= el && el <= b) return el;
+  });
+  return array;
+}
+
+let array = [5, 3, 8, 1];
+
+filterRangeInPlace(array, 1, 4); // removed the numbers except from 1 to 4
+
+console.log(array); // [3, 1]
